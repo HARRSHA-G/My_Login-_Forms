@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form - 4</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        body {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+
+        .login-form {
+            background: rgba(255, 255, 255, 0.85);
+            border-radius: 15px;
+            box-shadow: 0 12px 35px rgba(0, 0, 0, 0.3);
+            padding: 50px 40px;
+            width: 400px;
+            text-align: center;
+            animation: fadeInUp 1s ease-out;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .login-form:hover {
+            transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+            box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+        }
+
+        .login-form h2 {
+            color: #444;
+            margin-bottom: 25px;
+            font-size: 28px;
+            transition: color 0.3s ease;
+        }
+
+        .login-form input {
+            background: #f1f1f1;
+            border: none;
+            border-radius: 8px;
+            padding: 14px;
+            margin: 12px 0;
+            width: 100%;
+            color: #555;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .login-form input:focus {
+            background: #e0e0e0;
+            box-shadow: 0 0 10px rgba(0, 123, 255, 0.3);
+            transform: scale(1.02);
+        }
+
+        .login-form button {
+            background: linear-gradient(135deg, #ff7e5f, #feb47b);
+            border: none;
+            border-radius: 8px;
+            padding: 14px;
+            width: 100%;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .login-form button:hover {
+            background: linear-gradient(135deg, #feb47b, #ff7e5f);
+            transform: translateY(-3px) scale(1.05);
+            box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-form button:active {
+            transform: scale(0.98);
+        }
+
+        .social-login {
+            margin: 20px 0;
+        }
+
+        .social-login .btn {
+            border-radius: 50%;
+            width: 50px;
+            height: 50px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 0;
+            margin: 10px auto;
+            transition: all 0.3s ease;
+            background-color: #fff;
+            color: #000;
+            text-decoration: none;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            font-size: 24px;
+        }
+
+        .social-login .google {
+            background-color: #db4437;
+            color: #fff;
+        }
+
+        .social-login .google:hover {
+            background-color: #c13726;
+        }
+
+        .social-login .facebook {
+            background-color: #3b5998;
+            color: #fff;
+        }
+
+        .social-login .facebook:hover {
+            background-color: #2d4373;
+        }
+
+        .social-login .linkedin {
+            background-color: #0077b5;
+            color: #fff;
+        }
+
+        .social-login .linkedin:hover {
+            background-color: #005582;
+        }
+
+        .social-login .github {
+            background-color: #333;
+            color: #fff;
+        }
+
+        .social-login .github:hover {
+            background-color: #222;
+        }
+
+        .social-login .btn i {
+            margin: 0;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="login-form" role="form" aria-labelledby="login-title">
+        <h2 id="login-title">Login</h2>
+        <form action="#" aria-live="polite" aria-labelledby="login-title">
+            <input type="text" id="username" aria-label="Username" placeholder="Username" required>
+            <input type="password" id="password" aria-label="Password" placeholder="Password" required>
+            <button type="submit" aria-label="Log In">Log In</button>
+        </form>
+
+        <section class="social-login d-flex">
+            <!-- Social Media Icons -->
+            <a class="btn google" href="https://accounts.google.com/login" role="button" target="_blank">
+                <i class="fab fa-google"></i>
+            </a>
+            <a class="btn facebook" href="https://facebook.com/login" role="button" target="_blank">
+                <i class="fab fa-facebook-f"></i>
+            </a>
+            <a class="btn linkedin" href="https://www.linkedin.com/in/" role="button" target="_blank">
+                <i class="fab fa-linkedin-in"></i>
+            </a>
+            <a class="btn github" href="https://github.com/login" role="button" target="_blank">
+                <i class="fab fa-github"></i>
+            </a>
+        </section>
+    </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <audio id="focus-sound" src="https://www.soundjay.com/button/beep-07.wav" preload="auto"></audio>
+    <audio id="submit-sound" src="https://www.soundjay.com/button/coin-in-slot-01.wav" preload="auto"></audio>
+
+    <script>
+        const focusSound = document.getElementById('focus-sound');
+        const submitSound = document.getElementById('submit-sound');
+
+        document.querySelectorAll('input').forEach(input => {
+            input.addEventListener('focus', () => {
+                focusSound.play();
+            });
+        });
+
+        document.querySelector('form').addEventListener('submit', (event) => {
+            event.preventDefault();
+            submitSound.play();
+            // Add additional logic for form submission here
+            alert('Form submitted!');
+        });
+    </script>
+</body>
+
+</html>

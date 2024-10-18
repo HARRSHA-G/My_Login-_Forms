@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form - 1</title>
+    <style>
+        body {
+            background: url('https://i.pinimg.com/originals/e3/dc/0f/e3dc0f61878e6896fbb913b2c54fb1f9.jpg') no-repeat center center fixed;
+            background-size: cover;
+            font-family: Arial, sans-serif;
+            height: 100vh;
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 80%;
+            max-width: 1200px;
+            padding: 20px;
+        }
+
+        .brand-section {
+            color: white;
+            flex: 1;
+            padding-right: 50px;
+        }
+
+        .brand-section h1 {
+            font-size: 48px;
+            margin: 0;
+            font-weight: bold;
+            color: #1877f2; /* Blue color for the heading */
+        }
+
+        .brand-section p {
+            font-size: 24px;
+            margin-top: 10px;
+        }
+
+        .login-section {
+            background: rgba(255, 255, 255, 0.15);
+            border-radius: 10px;
+            box-shadow: 0 8px 32px rgba(0, 0, 0, 0.37);
+            padding: 40px;
+            width: 100%;
+            max-width: 400px;
+            text-align: center;
+            backdrop-filter: saturate(180%) blur(12px);
+            -webkit-backdrop-filter: saturate(180%) blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.18);
+            animation: fadeIn 1s ease-out;
+        }
+
+        .login-section h2 {
+            color: #1877f2; /* Blue color for the form heading */
+            margin-bottom: 30px;
+            font-weight: 300;
+        }
+
+        .login-section input {
+            background: rgba(255, 255, 255, 0.25);
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            margin: 10px 0;
+            width: 100%;
+            color: #fff;
+            font-size: 16px;
+            outline: none;
+            transition: all 0.3s ease;
+        }
+
+        .login-section input:focus {
+            background: rgba(255, 255, 255, 0.35);
+            box-shadow: 0 4px 12px rgba(255, 255, 255, 0.2);
+        }
+
+        .login-section input.invalid {
+            border: 2px solid #e74c3c;
+        }
+
+        .login-section input.valid {
+            border: 2px solid #2ecc71;
+        }
+
+        .login-section .error-message {
+            color: #e74c3c;
+            font-size: 14px;
+            margin-top: 5px;
+            display: none;
+        }
+
+        .login-section button {
+            background: #1877f2;
+            border: none;
+            border-radius: 8px;
+            padding: 12px;
+            width: 100%;
+            color: #fff;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .login-section button:hover {
+            background: #145db2;
+            transform: translateY(-3px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+
+        .login-section button:active {
+            transform: translateY(3px);
+            background: #1877f2;
+        }
+
+        .login-section a {
+            display: block;
+            margin-top: 20px;
+            color: #fff;
+            text-decoration: none;
+            font-size: 14px;
+            transition: color 0.3s ease;
+        }
+
+        .login-section a:hover {
+            color: #ddd;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                flex-direction: column;
+                padding: 10px;
+            }
+
+            .brand-section {
+                padding-right: 0;
+                margin-bottom: 20px;
+                text-align: center;
+            }
+
+            .login-section {
+                max-width: 100%;
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="brand-section">
+            <h1>Facebook</h1>
+            <p>Connect with friends and the world around you on Facebook.</p>
+        </div>
+        <div class="login-section">
+            <h2>Login</h2>
+            <form id="loginForm" action="#">
+                <input id="email" type="text" placeholder="Email or Phone" required>
+                <div id="emailError" class="error-message">Please enter a valid email address.</div>
+                <input id="password" type="password" placeholder="Password" required minlength="6">
+                <div id="passwordError" class="error-message">Password must be at least 6 characters long.</div>
+                <button type="submit">Log In</button>
+                <a href="#">Forgot Password?</a>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        const emailInput = document.getElementById('email');
+        const passwordInput = document.getElementById('password');
+        const emailError = document.getElementById('emailError');
+        const passwordError = document.getElementById('passwordError');
+        const loginForm = document.getElementById('loginForm');
+
+        function validateEmail(email) {
+            const regex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+            return regex.test(email);
+        }
+
+        function validateForm() {
+            let valid = true;
+
+            if (!validateEmail(emailInput.value)) {
+                emailError.style.display = 'block';
+                emailInput.classList.add('invalid');
+                valid = false;
+            } else {
+                emailError.style.display = 'none';
+                emailInput.classList.remove('invalid');
+                emailInput.classList.add('valid');
+            }
+
+            if (passwordInput.value.length < 6) {
+                passwordError.style.display = 'block';
+                passwordInput.classList.add('invalid');
+                valid = false;
+            } else {
+                passwordError.style.display = 'none';
+                passwordInput.classList.remove('invalid');
+                passwordInput.classList.add('valid');
+            }
+
+            return valid;
+        }
+
+        loginForm.addEventListener('submit', function(event) {
+            event.preventDefault();
+            if (validateForm()) {
+                // Proceed with form submission or further processing
+                alert('Form submitted successfully!');
+            }
+        });
+    </script>
+</body>
+</html>

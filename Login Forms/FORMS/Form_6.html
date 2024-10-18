@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login Form - 6</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            perspective: 1000px;
+        }
+        .login-container {
+            background: #fff;
+            border-radius: 10px;
+            padding: 40px;
+            width: 450px;
+            height: 450px;
+            margin: 100px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+        }
+        .form-control {
+            background-color: transparent;
+            border: 1px solid #ddd;
+        }
+        .form-control:focus {
+            border-color: #29b6f6;
+            box-shadow: 0 0 8px #29b6f6;
+        }
+        .btn-minimalist {
+            background-color: #29b6f6;
+            border: none;
+            color: #fff;
+            transition: background-color 0.3s ease-in-out;
+        }
+        .btn-minimalist:hover {
+            background-color: #0288d1;
+        }
+    </style>
+</head>
+<body>
+
+<div class="login-container">
+    <h2 class="text-center mb-4">Login</h2>
+    <form id="loginForm3">
+        <div class="mb-4">
+            <label for="email3" class="form-label">Email</label>
+            <input type="email" id="email3" class="form-control" required>
+            <div class="invalid-feedback">Please enter a valid email address.</div>
+        </div>
+
+        <div class="mb-4">
+            <label for="password3" class="form-label">Password</label>
+            <input type="password" id="password3" class="form-control" required>
+            <div class="invalid-feedback">Password is required.</div>
+        </div>
+
+        <button type="submit" class="btn btn-minimalist btn-block">Login</button>
+    </form>
+</div>
+
+<!-- Adding audio elements for sounds -->
+<audio id="focus-sound" src="https://www.soundjay.com/button/sounds/button-16.mp3"></audio>
+<audio id="submit-sound" src="https://www.soundjay.com/button/sounds/button-20.mp3"></audio>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+
+<script>
+    const focusSound = document.getElementById('focus-sound');
+    const submitSound = document.getElementById('submit-sound');
+
+    // Play focus sound when an input is focused
+    document.querySelectorAll('input').forEach(input => {
+        input.addEventListener('focus', () => {
+            focusSound.play();
+        });
+    });
+
+    // Play submit sound and handle form submission
+    document.getElementById('loginForm3').addEventListener('submit', (event) => {
+        event.preventDefault();
+        submitSound.play();
+
+        // Logic to show a success message after form submission
+        alert('Form submitted successfully!');
+    });
+</script>
+
+</body>
+</html>
